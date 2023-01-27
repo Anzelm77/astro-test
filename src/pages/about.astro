@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import '../styles/global.css';
+
 const pageTitle = "Strona o mnie";
 const identity = {
     firstName: "Karol",
@@ -11,6 +13,9 @@ const skills = ["Zarządzanie projektami", "Tworzenie produktów", "Sprzedaz", "
 const happy =   true;
 const finished = false;
 const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const lineHeight = "1.5rem";
 ---
 
 <Layout title={pageTitle}>
@@ -27,7 +32,7 @@ const goal = 3;
 
         <p>Moje skille to</p>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
         
         {happy && <p>Cieszę się, ze uczę się Astro!</p>}
@@ -41,10 +46,23 @@ const goal = 3;
 
 </Layout>
 
-<style>
+<style define:vars={{skillColor, fontWeight, lineHeight}}>
     main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 60ch;
 	}
+    h1 {
+        color: purple;
+        font-size: 4rem;
+    }
+    h2 {
+        color: rgb(80, 18, 80);
+        font-size: 2rem;
+    }
+    .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        line-height: var(--lineHeight);
+    }
 </style>
