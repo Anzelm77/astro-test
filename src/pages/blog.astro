@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Blog">
+    <main>
+        <h1>Witaj na moim blogu!</h1>
+        <Card
+            href="/"
+            title="Wróć na stronę główną"
+            body="kliknij, aby wrócić na główną stronę"
+        />
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+    }
+</style>
