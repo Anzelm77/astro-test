@@ -1,13 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<Navigation/>
+		<Header/>
 		<h1>Witaj na mojej <span class="text-gradient">Stronie</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
