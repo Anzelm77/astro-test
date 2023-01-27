@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Card from '../components/Card.astro';
+const pageTitle = "Witaj na moim blogu"
 ---
 
-<Layout title="Blog">
+<Layout title={pageTitle}>
     <main>
-        <h1>Witaj na moim blogu!</h1>
+        <h1>{pageTitle}</h1>
         <ul role="list" class="link-card-grid">
             <Card
                 href="/"

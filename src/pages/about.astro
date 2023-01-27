@@ -1,21 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro"
-
+const pageTitle = "Strona o mnie";
+const identity = {
+    firstName: "Karol",
+    lastName: "Drazynski",
+    hobby: "pływanie",
+    occupation: "Prowadzę projekt DG :)"
+}
+const skills = ["Zarządzanie projektami", "Tworzenie produktów", "Sprzedaz", "Marketing"];
+const happy =   true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout title="O mnie">
+<Layout title={pageTitle}>
    <main>
-        <p>
-            <a href="/">Wróć do strony głównej</a>
-        </p>
-        <h1>My Astro Site</h1>
+        <a href="/">Wróć do strony głównej</a>
+        <a href="/blog">Zobacz nasz blog</a>
+        <br>
 
-        <h1>About Me</h1>
-        <h2>... and my new Astro site!</h2>
+        <h1>{pageTitle}</h1>
 
-        <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+        <h2>Część, jestem {identity.firstName} {identity.lastName}</h2>
 
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+        <p>Na codzień {identity.occupation}, w wolnej chwili lubię {identity.hobby}.</p>
+
+        <p>Moje skille to</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+        
+        {happy && <p>Cieszę się, ze uczę się Astro!</p>}
+
+        {finished && <p>Skońćzyłem juz kurs Astro!</p>}
+
+        {goal === 3 ? <p>Chcę skończyć w przeciągu 3 dni</p> : <p>Moim celem nie są 3 dni</p>}
+        
+
   </main>
 
 </Layout>
