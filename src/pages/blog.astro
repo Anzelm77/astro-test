@@ -6,11 +6,28 @@ import Card from '../components/Card.astro';
 <Layout title="Blog">
     <main>
         <h1>Witaj na moim blogu!</h1>
-        <Card
-            href="/"
-            title="Wróć na stronę główną"
-            body="kliknij, aby wrócić na główną stronę"
-        />
+        <ul role="list" class="link-card-grid">
+            <Card
+                href="/"
+                title="Wróć na stronę główną"
+                body="kliknij, aby wrócić na główną stronę"
+            />
+            <Card
+                href="/posts/post-1"
+                title="Pierwszy wpis"
+                body="Zobacz mój pierwszy wpis"
+            />
+            <Card
+                href="/posts/post-2"
+                title="Drugi wpis"
+                body="Drugi wpis czeka tutaj!"
+            />
+            <Card
+                href="/posts/post-3"
+                title="Trzeci wpis"
+                body="Trzeci wpis"
+            />
+        </ul>
     </main>
 </Layout>
 
@@ -20,4 +37,10 @@ import Card from '../components/Card.astro';
 		padding: 1.5rem;
 		max-width: 60ch;
     }
+    .link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
 </style>
