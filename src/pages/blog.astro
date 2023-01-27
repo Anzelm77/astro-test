@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const pageTitle = "Witaj na moim blogu"
 ---
@@ -33,7 +34,12 @@ const pageTitle = "Witaj na moim blogu"
                 body="Trzeci wpis"
             />
         </ul>
+    <Footer/>
+    <script>
+		import '../scripts/menu.js';
+  	</script>
     </main>
+
 </Layout>
 
 <style>

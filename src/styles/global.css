@@ -22,6 +22,19 @@ h1 {
 
 /* nav styles */
 
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    display: block;
+    width: 40px;
+    height: 4px;
+    margin-bottom: 5px;
+    background-color: #6f0065;
+}
+
 .nav-links {
     width: 100%;
     top: 5rem;
@@ -40,6 +53,8 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+
 
 .nav-links a:hover,
 a:focus {
@@ -62,6 +77,10 @@ a:focus {
     .nav-links a {
         display: inline-block;
         padding: 15px 20px;
+    }
+    
+    .hamburger {
+        display: none;
     }
 
 }
