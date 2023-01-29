@@ -21,7 +21,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 const filteredPosts = posts.filter((post) => post.frontmatter.tags.includes(tag));
 ---
-<Layout pageTitle={tag}>
+<Layout title={tag}>
   <p>Posts tagged with {tag}</p>
   <ul class="link-card-grid" role="list">
     {filteredPosts.map((post) => <Card
@@ -33,7 +33,7 @@ const filteredPosts = posts.filter((post) => post.frontmatter.tags.includes(tag)
 
   </ul>
     
-</BaseLayout>
+</Layout>
 
 <style>
     .link-card-grid {
