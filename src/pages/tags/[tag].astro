@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+
+  return [
+    {params: {tag: "astro"}, props: {posts: allPosts}},
+    {params: {tag: "successes"}, props: {posts: allPosts}},
+    {params: {tag: "community"}, props: {posts: allPosts}},
+    {params: {tag: "blogging"}, props: {posts: allPosts}},
+    {params: {tag: "setbacks"}, props: {posts: allPosts}},
+    {params: {tag: "learning in public"}, props: {posts: allPosts}}
+  ]
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) => post.frontmatter.tags.includes(tag));
+---
+<Layout pageTitle={tag}>
+  <p>Posts tagged with {tag}</p>
+  <ul class="link-card-grid" role="list">
+    {filteredPosts.map((post) => <Card
+                href={post.url}
+                title={post.frontmatter.title}
+                body={post.frontmatter.description}
+                />   )}
+    
+
+  </ul>
+    
+</BaseLayout>
+
+<style>
+    .link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
